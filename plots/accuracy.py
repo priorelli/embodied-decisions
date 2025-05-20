@@ -47,7 +47,7 @@ def plot_accuracy(logs, width):
     # Plot serial process
     xx = np.linspace(np.min(speed), c.n_steps, c.n_trials)
     yy = func(xx, *popt)
-    axs.plot(xx + 90, yy, lw=width, label=conds[1], ls='--')
+    axs.plot(xx + 100, yy, lw=width, label=conds[1], ls='--')
 
     # Plot other conditions
     for cond, success, react, color in zip(
