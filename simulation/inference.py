@@ -130,9 +130,9 @@ class Inference(Window):
                     c.mod = 'reversed'
 
             elif c.task == 'accuracy':
-                if self.trial % 100 == 0:
+                if self.trial % 50 == 0:
                     # c.w_h += 0.9
-                    c.alpha_h -= 0.8 / 4
+                    c.alpha_h -= 0.2 / 9
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
             elif c.task == 'likelihood':

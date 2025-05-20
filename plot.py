@@ -39,7 +39,7 @@ def main():
         # plot_ext(log, width)
     elif options.accuracy:
         logs = [np.load('simulation/log_speed_acc_decide.npz'),
-                np.load('simulation/log_speed_acc_inf01.npz'),
+                np.load('simulation/log_speed_acc_inf02.npz'),
                 np.load('simulation/log_speed_acc_noinf.npz')]
         plot_accuracy(logs, width)
         # plot_correlation(logs, width)

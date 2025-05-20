@@ -121,14 +121,14 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 500
             c.gain_evidence = 1.0
-            c.k_h = 0.15
+            c.k_h = 0.2
             c.w_c = 1.0
-            c.w_h = 1.0
+            c.w_h = 1.2
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
             c.alpha_h = 0.7
-            c.n_wait = 10
+            c.n_wait = 6
             c.n_steps = c.n_cues * c.n_tau + c.n_tau * c.n_wait
 
         elif options.likelihood:

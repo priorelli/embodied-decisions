@@ -16,7 +16,7 @@ def plot_accuracy(logs, width):
 
     fig, axs = plt.subplots(1, figsize=(20, 16))
     axs.set_ylim(-1, 51)
-    axs.set_xlim(90, 750)
+    axs.set_xlim(90, c.n_steps)
     axs.set_ylabel('Mean error (%)')
     axs.set_xlabel('React time')
 
@@ -39,26 +39,26 @@ def plot_accuracy(logs, width):
         accuracy.append(np.average(errors) * 100)
 
     popt, pcov = curve_fit(func, speed, accuracy, p0=(100000, 0.04))
-    xx = np.linspace(np.min(speed), 750, 500)
+    xx = np.linspace(np.min(speed), c.n_steps, c.n_trials)
     yy = func(xx, *popt)
-    axs.scatter(speed, accuracy, s=100)
+    # axs.scatter(speed, accuracy, s=100)
     axs.plot(xx, yy, lw=width, label=conds[0], ls='--')
 
     # Plot serial process
-    xx = np.linspace(np.min(speed), 750, 500)
+    xx = np.linspace(np.min(speed), c.n_steps, c.n_trials)
     yy = func(xx, *popt)
-    axs.plot(xx + 400, yy, lw=width, label=conds[1], ls='--')
+    axs.plot(xx + 90, yy, lw=width, label=conds[1], ls='--')
 
     # Plot other conditions
     for cond, success, react, color in zip(
             conds[2:], successes, reacts, colors):
         speed, accuracy, std = [], [], []
-        for trial in range(0, len(success), 100):
-            times_notnan = react[trial:trial + 100][np.argwhere(
-                ~np.isnan(react[trial:trial + 100])).T[0]]
+        for trial in range(0, c.n_trials, c.n_trials // 10):
+            times_notnan = react[trial:trial + c.n_trials // 10][np.argwhere(
+                ~np.isnan(react[trial:trial + c.n_trials // 10])).T[0]]
 
-            success_notnan = success[trial:trial + 100][np.argwhere(
-                ~np.isnan(success[trial:trial + 100])).T[0]]
+            success_notnan = success[trial:trial + c.n_trials // 10][np.argwhere(
+                ~np.isnan(success[trial:trial + c.n_trials // 10])).T[0]]
 
             if times_notnan.any() and success_notnan.any():
                 speed.append(np.average(times_notnan))
@@ -66,9 +66,9 @@ def plot_accuracy(logs, width):
                 std.append(np.std(times_notnan))
 
         popt, pcov = curve_fit(func, speed, accuracy, p0=(100000, 0.04))
-        xx = np.linspace(np.min(speed), 750, 500)
+        xx = np.linspace(np.min(speed), c.n_steps, c.n_trials)
         yy = func(xx, *popt)
-        axs.scatter(speed, accuracy, s=100, color=color)
+        # axs.scatter(speed, accuracy, s=100, color=color)
         axs.plot(xx, yy, lw=width, label=cond, color=color)
 
     axs.legend()
@@ -90,7 +90,7 @@ def plot_tradeoff(logs, width):
 
     fig, axs = plt.subplots(1, figsize=(20, 16))
     axs.set_ylim(-1, 51)
-    axs.set_xlim(0, 750)
+    axs.set_xlim(0, c.n_steps)
     axs.set_ylabel('Mean error (%)')
     axs.set_xlabel('t')
 
@@ -125,7 +125,7 @@ def plot_tradeoff(logs, width):
             pos_logs, t1_pos_logs, t2_pos_logs):
         times, errors = [], []
 
-        for trial in range(0, len(success), 100):
+        for trial in range(0, c.n_trials, c.n_trials // 10):
             n = int(np.count_nonzero(cue[trial][1:16, 0]) < c.n_cues / 2)
 
             time1 = np.where(norm(pos[trial, :, -1] - t1_pos[n], axis=1) <

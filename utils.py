@@ -195,24 +195,20 @@ def to_angle(cos_sin):
 
 # Accumulate log evidence
 def acc_log_evidence(eta, Eta_m, mu, pi, pi_m, p):
-    eta = eta.detach().numpy()
-    Eta_m = [eta_m.detach().numpy() for eta_m in Eta_m]
-    mu = mu.detach().numpy()
+    eta_rng = normalize(eta.detach().numpy(), (-1, 1), rng=False)
+    Eta_m_rng = normalize(Eta_m.detach().numpy(), (-1, 1), rng=False)
+    mu_rng = normalize(mu.detach().numpy(), (-1, 1), rng=False)
 
     pi = pi.detach().numpy()
     pi_m = pi_m.detach().numpy()
     p = p.detach().numpy()
     p_m = p - pi + pi_m
 
-    L = np.zeros(len(Eta_m))
+    Mu_m_rng = (p * mu_rng - pi * eta_rng + pi_m * Eta_m_rng) / p_m
+    L_t = (p_m * Mu_m_rng ** 2 - p * mu_rng ** 2 +
+           pi * eta_rng ** 2 - pi_m * Eta_m_rng ** 2)
 
-    for m, eta_m in enumerate(Eta_m):
-        mu_m = (p * mu - pi * eta + pi_m * eta_m) / p_m
-
-        L[m] = np.sum(p_m * mu_m ** 2 - p * mu ** 2 +
-                      pi * eta ** 2 - pi_m * eta_m ** 2)
-
-    return L / 2
+    return np.sum(L_t, axis=tuple(range(1, L_t.ndim)))
 
 
 # Perform Bayesian model comparison

@@ -28,10 +28,10 @@ x_int_start = None
 
 pi_eta_x_int = 0.0
 pi_x_int = 1.0
-p_x_int = 10.0
+p_x_int = 2.0
 pi_prop = 1.0
 
-pi_eta_x_ext = 0.5
+pi_eta_x_ext = 0.45
 pi_x_ext = pi_x_int
 p_x_ext = p_x_int
 pi_vis = 1.0
@@ -47,9 +47,9 @@ n_tau = 30
 n_policy = 1
 
 gain_prior = 1.0
-gain_evidence = 1.0
+gain_evidence = 5.0
 k_h = 0.0
-w_c = 1.1
+w_c = 1.2
 w_h = 1.0
 
 omega_d = 1.0
@@ -62,12 +62,12 @@ alpha_c = 0.6
 alpha_h = 0.8
 
 # Simulation
-n_trials = 1
+n_trials = 500
 n_cues = 15
-n_wait = 5
+n_wait = 6
 n_steps = n_cues * n_tau + n_tau * n_wait
 n_orders = 2
-log_name = 'speed_acc_inf01'
+log_name = ''
 
 task = 'custom'
 mod = 'custom'  # congruent, incongruent, neutral, custom, reversed
