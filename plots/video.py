@@ -15,7 +15,7 @@ def record_video(log, width):
     trial = 0
     text = r'$\tau=1$'
     # text = 'Incongruent \t\t\t  ' + r'$k_d=0.2$'
-    # text = r'$\alpha_c=0.49$' + '\t\t\t\t' + r'$\alpha_h=0.2$'
+    # text = r'$\alpha_c=0.51$' + '\t\t\t\t' + r'$\alpha_h=0.8$'
     dynamics = True
 
     # Initialize body

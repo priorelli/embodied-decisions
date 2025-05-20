@@ -26,8 +26,8 @@ def main():
             c.w_e = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.4
-            c.alpha_e = 0.0
+            c.alpha_c = 0.6
+            c.alpha_e = 1.0
 
         elif options.urgency:
             c.log_name = 'urgency'
@@ -43,8 +43,8 @@ def main():
             c.w_e = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.4
-            c.alpha_e = 0.0
+            c.alpha_c = 0.6
+            c.alpha_e = 1.0
 
         elif options.modulation:
             c.log_name = 'modulation'
@@ -59,7 +59,7 @@ def main():
             c.w_e = 15.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.1
+            c.alpha_c = 0.9
             c.alpha_e = 0.5
 
         elif options.commitment:
@@ -75,8 +75,8 @@ def main():
             c.w_e = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.4
-            c.alpha_e = 0.2
+            c.alpha_c = 0.6
+            c.alpha_e = 0.8
             c.cue_sequence = [0, 0, 1, 0, 0, 0, 0, 0,
                               1, 0, 0, 0, 0, 0, 0]
 
@@ -93,8 +93,8 @@ def main():
             c.w_e = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.4
-            c.alpha_e = 0.0
+            c.alpha_c = 0.6
+            c.alpha_e = 1.0
             c.cue_sequence = [1, 0, 1, 0, 1, 0, 0, 0,
                               0, 0, 0, 0, 0, 0, 0]
 
@@ -111,8 +111,8 @@ def main():
             c.w_e = 15.0
             c.omega_d = 0.99
             c.eta_d = 0.2
-            c.alpha_c = 0.4
-            c.alpha_e = 0.4
+            c.alpha_c = 0.6
+            c.alpha_e = 0.6
 
         elif options.accuracy:
             c.task = 'accuracy'
@@ -126,8 +126,8 @@ def main():
             c.w_e = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
-            c.alpha_c = 0.4
-            c.alpha_e = 0.3
+            c.alpha_c = 0.6
+            c.alpha_e = 0.7
             c.n_wait = 10
             c.n_steps = c.n_cues * c.n_tau + c.n_tau * c.n_wait
 
@@ -150,8 +150,8 @@ def main():
             # c.eta_a_ext = 0.01
             c.omega_a_cue = 0.98
             c.eta_a_cue = 0.01
-            c.alpha_c = 0.4
-            c.alpha_e = 0.3
+            c.alpha_c = 0.6
+            c.alpha_e = 0.7
             c.n_wait = 10
             c.n_steps = c.n_cues * c.n_tau + c.n_tau * c.n_wait
 

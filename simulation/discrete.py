@@ -96,11 +96,11 @@ class Discrete:
 
         for state, idx in self.state_to_idx.items():
             if state == 'T1':
-                A_cue[0, idx] = 1 - c.alpha_c
-                A_cue[1, idx] = c.alpha_c
-            elif state == 'T2':
-                A_cue[1, idx] = 1 - c.alpha_c
                 A_cue[0, idx] = c.alpha_c
+                A_cue[1, idx] = 1 - c.alpha_c
+            elif state == 'T2':
+                A_cue[1, idx] = c.alpha_c
+                A_cue[0, idx] = 1 - c.alpha_c
 
         return A_cue
 
@@ -110,11 +110,11 @@ class Discrete:
 
         for state, idx in self.state_to_idx.items():
             if state == 'T1':
-                A_ext[0, idx] = 1 - c.alpha_e
-                A_ext[2, idx] = c.alpha_e
+                A_ext[0, idx] = c.alpha_e
+                A_ext[2, idx] = 1 - c.alpha_e
             if state == 'T2':
-                A_ext[1, idx] = 1 - c.alpha_e
-                A_ext[2, idx] = c.alpha_e
+                A_ext[1, idx] = c.alpha_e
+                A_ext[2, idx] = 1 - c.alpha_e
 
         return A_ext
 

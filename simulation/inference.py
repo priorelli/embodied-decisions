@@ -92,7 +92,7 @@ class Inference(Window):
             elif c.task == 'urgency':
                 if self.trial == 1:
                     c.w_e = 15.0
-                    c.alpha_e = 0.45
+                    c.alpha_e = 0.55
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
                 elif self.trial == 2:
                     c.w_e = 15.0
@@ -101,8 +101,8 @@ class Inference(Window):
 
             elif c.task == 'modulation':
                 if self.trial == 1:
-                    c.alpha_c = 0.49
-                    c.alpha_e = 0.2
+                    c.alpha_c = 0.51
+                    c.alpha_e = 0.8
                     self.brain.discrete.A_cue = self.brain.discrete.get_A_cue()
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
@@ -132,7 +132,7 @@ class Inference(Window):
             elif c.task == 'accuracy':
                 if self.trial % 100 == 0:
                     # c.w_e += 0.9
-                    c.alpha_e += 0.2 / 4
+                    c.alpha_e -= 0.8 / 4
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
             elif c.task == 'likelihood':

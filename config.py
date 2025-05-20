@@ -58,8 +58,8 @@ omega_a_ext = 1.0
 eta_a_ext = 0.0
 omega_a_cue = 1.0
 eta_a_cue = 0.0
-alpha_c = 0.4
-alpha_e = 0.2
+alpha_c = 0.6
+alpha_e = 0.8
 
 # Simulation
 n_trials = 1
