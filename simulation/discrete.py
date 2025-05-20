@@ -110,11 +110,11 @@ class Discrete:
 
         for state, idx in self.state_to_idx.items():
             if state == 'T1':
-                A_ext[0, idx] = c.alpha_e
-                A_ext[2, idx] = 1 - c.alpha_e
+                A_ext[0, idx] = c.alpha_h
+                A_ext[2, idx] = 1 - c.alpha_h
             if state == 'T2':
-                A_ext[1, idx] = c.alpha_e
-                A_ext[2, idx] = 1 - c.alpha_e
+                A_ext[1, idx] = c.alpha_h
+                A_ext[2, idx] = 1 - c.alpha_h
 
         return A_ext
 
@@ -157,7 +157,7 @@ class Discrete:
 
         log_prior = utils.log_stable(self.prior)
         log_post_cue = utils.log_stable(qs_t_cue)
-        log_post_ext = utils.log_stable(qs_t_ext) * c.k_e
+        log_post_ext = utils.log_stable(qs_t_ext) * c.k_h
 
         qs = utils.softmax(log_prior + log_post_cue + log_post_ext, c.w_c)
 
@@ -221,7 +221,7 @@ class Discrete:
     # Run discrete step
     def step(self, cue):
         # Perform BMC
-        self.o_ext[:] = utils.bmc(self.o_ext, self.L_ext, c.w_e,
+        self.o_ext[:] = utils.bmc(self.o_ext, self.L_ext, c.w_h,
                                   c.gain_prior, c.gain_evidence)
 
         # Infer current state
@@ -244,7 +244,7 @@ class Discrete:
 
         self.L_ext[:] = 0
         self.o_ext[:] = utils.bmc(self.get_expected_obs(self.prior),
-                                  self.L_ext, c.w_e,
+                                  self.L_ext, c.w_h,
                                   c.gain_prior, c.gain_evidence)
 
         if c.debug:

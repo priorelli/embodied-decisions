@@ -48,9 +48,9 @@ n_policy = 1
 
 gain_prior = 1.0
 gain_evidence = 1.0
-k_e = 0.0
+k_h = 0.0
 w_c = 1.1
-w_e = 1.0
+w_h = 1.0
 
 omega_d = 1.0
 eta_d = 0.0
@@ -59,7 +59,7 @@ eta_a_ext = 0.0
 omega_a_cue = 1.0
 eta_a_cue = 0.0
 alpha_c = 0.6
-alpha_e = 0.8
+alpha_h = 0.8
 
 # Simulation
 n_trials = 1
@@ -67,7 +67,7 @@ n_cues = 15
 n_wait = 5
 n_steps = n_cues * n_tau + n_tau * n_wait
 n_orders = 2
-log_name = ''
+log_name = 'speed_acc_inf01'
 
 task = 'custom'
 mod = 'custom'  # congruent, incongruent, neutral, custom, reversed

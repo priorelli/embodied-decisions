@@ -91,31 +91,31 @@ class Inference(Window):
 
             elif c.task == 'urgency':
                 if self.trial == 1:
-                    c.w_e = 15.0
-                    c.alpha_e = 0.55
+                    c.w_h = 15.0
+                    c.alpha_h = 0.55
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
                 elif self.trial == 2:
-                    c.w_e = 15.0
-                    c.alpha_e = 0.5
+                    c.w_h = 15.0
+                    c.alpha_h = 0.5
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
             elif c.task == 'modulation':
                 if self.trial == 1:
                     c.alpha_c = 0.51
-                    c.alpha_e = 0.8
+                    c.alpha_h = 0.8
                     self.brain.discrete.A_cue = self.brain.discrete.get_A_cue()
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
             elif c.task == 'commitment':
                 if self.trial == 1:
-                    c.k_e = 0.2
+                    c.k_h = 0.2
                 if self.trial == 2:
                     c.cue_sequence = [1, 1, 1, 1, 0, 0, 0, 0,
                                       0, 0, 0, 0, 0, 0, 0]
 
-                    c.k_e = 0.0
+                    c.k_h = 0.0
                 if self.trial == 3:
-                    c.k_e = 0.2
+                    c.k_h = 0.2
 
             elif c.task == 'cost':
                 if self.trial == 1:
@@ -131,8 +131,8 @@ class Inference(Window):
 
             elif c.task == 'accuracy':
                 if self.trial % 100 == 0:
-                    # c.w_e += 0.9
-                    c.alpha_e -= 0.8 / 4
+                    # c.w_h += 0.9
+                    c.alpha_h -= 0.8 / 4
                     self.brain.discrete.A_ext = self.brain.discrete.get_A_ext()
 
             elif c.task == 'likelihood':

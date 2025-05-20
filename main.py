@@ -21,13 +21,13 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 300
             c.gain_evidence = 1.0
-            c.k_e = 0.0
+            c.k_h = 0.0
             c.w_c = 1.1
-            c.w_e = 1.0
+            c.w_h = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
-            c.alpha_e = 1.0
+            c.alpha_h = 1.0
 
         elif options.urgency:
             c.log_name = 'urgency'
@@ -38,13 +38,13 @@ def main():
             c.n_trials = 3
             c.gain_prior = 1.0
             c.gain_evidence = 1.0
-            c.k_e = 0.0
+            c.k_h = 0.0
             c.w_c = 1.0
-            c.w_e = 1.0
+            c.w_h = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
-            c.alpha_e = 1.0
+            c.alpha_h = 1.0
 
         elif options.modulation:
             c.log_name = 'modulation'
@@ -54,13 +54,13 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 2
             c.gain_evidence = 1.0
-            c.k_e = 0.0
+            c.k_h = 0.0
             c.w_c = 1.0
-            c.w_e = 15.0
+            c.w_h = 15.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.9
-            c.alpha_e = 0.5
+            c.alpha_h = 0.5
 
         elif options.commitment:
             c.log_name = 'commitment'
@@ -70,13 +70,13 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 4
             c.gain_evidence = 1.0
-            c.k_e = 0.0
+            c.k_h = 0.0
             c.w_c = 1.0
-            c.w_e = 1.0
+            c.w_h = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
-            c.alpha_e = 0.8
+            c.alpha_h = 0.8
             c.cue_sequence = [0, 0, 1, 0, 0, 0, 0, 0,
                               1, 0, 0, 0, 0, 0, 0]
 
@@ -88,13 +88,13 @@ def main():
             c.t2_pos = [150, 400]
             c.n_trials = 3  # 300
             c.gain_evidence = 3.0
-            c.k_e = 0.1
+            c.k_h = 0.1
             c.w_c = 1.0
-            c.w_e = 1.0
+            c.w_h = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
-            c.alpha_e = 1.0
+            c.alpha_h = 1.0
             c.cue_sequence = [1, 0, 1, 0, 1, 0, 0, 0,
                               0, 0, 0, 0, 0, 0, 0]
 
@@ -106,13 +106,13 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 50
             c.gain_evidence = 1.0
-            c.k_e = 0.0  # 0.0, 0.05
+            c.k_h = 0.0  # 0.0, 0.05
             c.w_c = 1.0
-            c.w_e = 15.0
+            c.w_h = 15.0
             c.omega_d = 0.99
             c.eta_d = 0.2
             c.alpha_c = 0.6
-            c.alpha_e = 0.6
+            c.alpha_h = 0.6
 
         elif options.accuracy:
             c.task = 'accuracy'
@@ -121,13 +121,13 @@ def main():
             c.t2_pos = [250, 400]
             c.n_trials = 500
             c.gain_evidence = 1.0
-            c.k_e = 0.15
+            c.k_h = 0.15
             c.w_c = 1.0
-            c.w_e = 1.0
+            c.w_h = 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             c.alpha_c = 0.6
-            c.alpha_e = 0.7
+            c.alpha_h = 0.7
             c.n_wait = 10
             c.n_steps = c.n_cues * c.n_tau + c.n_tau * c.n_wait
 
@@ -141,9 +141,9 @@ def main():
             c.n_trials = 60
             c.gain_prior = 1.0
             c.gain_evidence = 1.0
-            c.k_e = 0.0
+            c.k_h = 0.0
             c.w_c = 1.0
-            c.w_e = 2.0  # 8.0, 1.0
+            c.w_h = 2.0  # 8.0, 1.0
             c.omega_d = 1.0
             c.eta_d = 0.0
             # c.omega_a_ext = 0.99
@@ -151,7 +151,7 @@ def main():
             c.omega_a_cue = 0.98
             c.eta_a_cue = 0.01
             c.alpha_c = 0.6
-            c.alpha_e = 0.7
+            c.alpha_h = 0.7
             c.n_wait = 10
             c.n_steps = c.n_cues * c.n_tau + c.n_tau * c.n_wait
 
